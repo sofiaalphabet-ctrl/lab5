@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evently - Event Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container navigation">
+            <a href="#home" class="logo">
+                evently<span class="dot">.</span>
+            </a>
+
+            <nav>
+                <a href="#events">Events</a>
+                <a href="#register">Register</a>
+                <a href="#registrations">Registrations</a>
+            </nav>
+
+            <button id="themeButton" class="theme-button" type="button">
+                Dark theme
+            </button>
+        </div>
+    </header>
+
+    <main class="container" id="home">
+
+        <section class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">DISCOVER SOMETHING NEW</p>
+
+                <h1>Make room for<br>
+                    <span>what's next.</span>
+                </h1>
+
+                <p>
+                    Join interesting events, learn new skills,
+                    and meet people who share your interests.
+                </p>
+
+                <a href="#events" class="main-link">
+                    Explore events →
+                </a>
+            </div>
+
+            <div class="hero-card">
+                <span class="hero-label">YOUR NEXT STEP</span>
+                <div class="hero-symbol">✳</div>
+                <h2>Learn.<br>Connect.<br>Grow.</h2>
+                <p>New ideas start here.</p>
+            </div>
+        </section>
+
+        <section id="events" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FIND YOUR EVENT</p>
+                    <h2>Upcoming events</h2>
+                </div>
+                <p class="section-note">
+                    Choose an event and reserve your place.
+                </p>
+            </div>
+
+            <div class="event-grid">
+
+                <article class="event-card" data-event="Web Design Workshop">
+                    <div class="event-picture picture-one">
+                        <span>DESIGN</span>
+                        <strong>✳</strong>
+                    </div>
+
+                    <div class="event-content">
+                        <p class="event-date">15 October 2026</p>
+                        <h3>Web Design Workshop</h3>
+                        <p>
+                            Learn the basics of HTML and CSS
+                            and create your first web page.
+                        </p>
+                        <button class="select-button" type="button">
+                            Select event →
+                        </button>
+                    </div>
+                </article>
+
+                <article class="event-card" data-event="JavaScript Quiz">
+                    <div class="event-picture picture-two">
+                        <span>PROGRAMMING</span>
+                        <strong>{ }</strong>
+                    </div>
+
+                    <div class="event-content">
+                        <p class="event-date">18 October 2026</p>
+                        <h3>JavaScript Quiz</h3>
+                        <p>
+                            Test your JavaScript knowledge
+                            with interesting programming tasks.
+                        </p>
+                        <button class="select-button" type="button">
+                            Select event →
+                        </button>
+                    </div>
+                </article>
+
+                <article class="event-card" data-event="IT Career Talk">
+                    <div class="event-picture picture-three">
+                        <span>CAREERS</span>
+                        <strong>↗</strong>
+                    </div>
+
+                    <div class="event-content">
+                        <p class="event-date">22 October 2026</p>
+                        <h3>IT Career Talk</h3>
+                        <p>
+                            Discover IT professions and learn
+                            about future career opportunities.
+                        </p>
+                        <button class="select-button" type="button">
+                            Select event →
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="selectedEventText" class="selected-text">
+                No event selected.
+            </p>
+            <p id="eventError" class="error-message"></p>
+        </section>
+
+        <section id="register" class="section registration-section">
+            <div class="form-intro">
+                <p class="eyebrow">SAVE YOUR PLACE</p>
+                <h2>Join the next event.</h2>
+                <p>
+                    Fill in the form below to complete your registration.
+                    All required fields must be completed.
+                </p>
+                <div class="small-note">
+                    <span>✓</span>
+                    Quick and simple registration
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h2>Registration form</h2>
+                <p class="form-description">Fields marked with * are required.</p>
+
+                <form id="registrationForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="fullName">Full name *</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            aria-describedby="nameError nameCounter"
+                        >
+                        <div class="input-footer">
+                            <span id="nameError" class="error-message"></span>
+                            <span id="nameCounter" class="counter">
+                                0 characters
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            aria-describedby="emailError"
+                        >
+                        <span id="emailError" class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentGroup">Student group *</label>
+                        <input
+                            type="text"
+                            id="studentGroup"
+                            name="studentGroup"
+                            placeholder="e.g. IT3-2503 DS"
+                            aria-describedby="groupError"
+                        >
+                        <span id="groupError" class="error-message"></span>
+                    </div>
+
+                    <input type="hidden" id="selectedEvent" name="selectedEvent">
+
+                    <div class="agreement-group">
+                        <label class="agreement-label" for="agreement">
+                            <input
+                                type="checkbox"
+                                id="agreement"
+                                name="agreement"
+                            >
+                            <span>I agree to the registration rules. *</span>
+                        </label>
+                        <span id="agreementError" class="error-message"></span>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        Complete registration →
+                    </button>
+
+                    <p id="formMessage" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="registrations" class="section results-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR CONFIRMATIONS</p>
+                    <h2>Registrations <span id="registrationCount">0</span></h2>
+                </div>
+            </div>
+
+            <div id="emptyMessage" class="empty-message">
+                <span>✳</span>
+                <h3>No registrations yet</h3>
+                <p>Your successful registrations will appear here.</p>
+            </div>
+
+            <ul id="registrationList" class="registration-list"></ul>
+        </section>
+
+        <section id="community" class="community-directory section">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">PUBLIC REST API</p>
+            <h2>Community Directory</h2>
+            <p class="community-description">
+                Load sample community members from a public API.
+            </p>
+        </div>
+    </div>
+
+    <div class="community-controls">
+        <button
+            id="communityLoadButton"
+            class="community-load-button"
+            type="button">
+            Load Community Members →
+        </button>
+
+        <input
+            id="communitySearch"
+            class="community-search"
+            type="search"
+            placeholder="Search by name..."
+            aria-label="Search community members by name"
+            disabled>
+    </div>
+
+    <p
+        id="communityStatus"
+        class="community-status"
+        role="status"
+        aria-live="polite">
+    </p>
+
+    <div id="communityCards" class="community-grid"></div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+        <a href="#home" class="logo">
+            evently<span class="dot">.</span>
+        </a>
+        <p>Discover. Learn. Connect.</p>
+    </footer>
+
+</body>
+</html>
